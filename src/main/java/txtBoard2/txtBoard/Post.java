@@ -1,4 +1,4 @@
-package txtBoard;
+package txtBoard2.txtBoard;
 
 public class Post {
     private int id;
