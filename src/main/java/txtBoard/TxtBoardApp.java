@@ -8,12 +8,13 @@ public class TxtBoardApp {
     Scanner sc = new Scanner(System.in);
 
     ArrayList<Post> postList = new ArrayList<>();
-int countId = 1;
+
+    int countId = 1;
 
 
     public void appRun(){
         while(true){
-            System.out.println("실행기능 : exit, add, list, update, delete");
+            System.out.println("실행기능 : exit, add, list, update, delete, detail");
             System.out.print("명령어 : ");
             String commend = sc.nextLine();
 
@@ -22,14 +23,14 @@ int countId = 1;
                 break;
             }else if(commend.equals("add")) {
                 System.out.print("게시물 제목을 입력해주세요 : ");
-                String boardTitle = sc.nextLine();
+                String postTitle = sc.nextLine();
                 System.out.print("게시물 내용을 입력해주세요 : ");
-                String boardContent = sc.nextLine();
+                String postContent = sc.nextLine();
 
                 Post post = new Post();
                 post.setId(countId);
-                post.setTitle(boardTitle);
-                post.setContent(boardContent);
+                post.setTitle(postTitle);
+                post.setContent(postContent);
 
                 postList.add(post);
                 System.out.println("게시물이 등록되었습니다.");
@@ -86,14 +87,17 @@ int countId = 1;
                 for (Post post : postList) {
                     if(post.getId() == targetId){
 
-                        postList.remove(post);
+                        System.out.println("==============");
+                        System.out.printf("번호 : %d\n", post.getId());
+                        System.out.printf("제목 : %s\n", post.getTitle());
+                        System.out.printf("내용 : %s\n", post.getContent());
+                        System.out.println("==============");
 
-                        System.out.printf("%d번 게시물이 삭제되었습니다.\n",post.getId());
                         found = true;
                     }
                 }
                 if(!found){
-                    System.out.println("delete : 없는 게시물 번호입니다.");
+                    System.out.println("detail : 없는 게시물 번호입니다.");
                 }
             }
 

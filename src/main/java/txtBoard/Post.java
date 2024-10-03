@@ -5,6 +5,7 @@ public class Post {
     private String title;
     private String content;
 
+
     public int getId() {
         return id;
     }
